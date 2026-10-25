@@ -1,0 +1,24 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+.next/
+
+# Environment files (keep example templates)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local agent, browser, and tool state
+.omo/
+.impeccable/
+.playwright-mcp/
+.claude/settings.local.json
+opencode.json
+
+# Logs and operating-system files
+*.log
+.DS_Store
+Thumbs.db
