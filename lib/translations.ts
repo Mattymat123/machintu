@@ -179,7 +179,7 @@ export const translations = {
       label: "Page sections",
       intro: "Intro",
       demo: "Demo",
-      about: "About Machintu",
+      about: "About Linse",
     },
     home: {
       eyebrow: "Responsible AI · Education",
@@ -216,7 +216,7 @@ export const translations = {
       workTitle: "Good work takes care.",
       workText:
         "We’re developing our first projects. We’ll share more here when we have something ready to show.",
-      aboutLabel: "About Machintu",
+      aboutLabel: "About Linse",
       aboutTitle: "Small team. Thoughtful software.",
       aboutText:
         "Machintu is a software company specialising in responsible AI for education. Our first focus is helping educators identify possible cheating.",
