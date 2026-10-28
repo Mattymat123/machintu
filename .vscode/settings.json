@@ -1,14 +1,15 @@
 {
   "explorer.excludeGitIgnore": true,
   "files.exclude": {
+    "": true,
+    ".impeccable": true,
+    ".omo": true,
+    ".playwright-mcp": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "**/node_modules": true,
     "**/.next": true,
     "**/*.tsbuildinfo": true,
-    ".omo": true,
-    ".impeccable": true,
-    ".playwright-mcp": true
+    "**/node_modules": true,
+    "**/Thumbs.db": true
   },
   "search.useIgnoreFiles": true,
   "files.watcherExclude": {

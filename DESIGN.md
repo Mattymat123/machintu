@@ -42,6 +42,20 @@ The reference opens with a sparse header and a large, centred headline on black.
 
 ## 3. Colour system
 
+### Machintu brand palette
+
+| Name | Hex | Role |
+| --- | --- | --- |
+| Dusty Lavender | `#6E6579` | Base |
+| Shadow Grey | `#19161F` | Base; AI demo copy on light surfaces |
+| Onyx | `#0C0C0C` | Base |
+| Amethyst Smoke | `#A995C1` | Base |
+| Pale Lilac | `#D9C9E6` | Light contrast; primary accent, analysis highlights, status, and navigation hover/focus |
+| Muted Sage | `#A6B09A` | Natural accent |
+| Dusty Rose | `#C18A92` | Warm accent |
+
+`Onyx 2` is a duplicate of Onyx (`#0C0C0C`), not a separate colour token.
+
 ### Observed reference colours
 
 | Role | Value | Use in reference |
@@ -59,16 +73,16 @@ The desktop hero visually accents “creative” with a cyan/teal treatment. No 
 
 ### Initial homepage tokens
 
-- Use `#000000` for the page canvas, `#121212` for the analysis demo and footer, `#242424` for subtle control surfaces, and `#FFFFFF` for primary text.
-- Use `#9EDBCD` as the restrained Machintu teal accent for emphasis and small status indicators. Keep body text neutral and check contrast for each use.
-- Use `#C86417` only for the animated underline that marks illustrative passages in the Linse demo; do not use it for probability text or status.
+- Use `#0c0c0c` for the page canvas with a soft `#7d5ba6` violet glow at the upper left, following the SaaS landing-page reference. Use `#121212` for the analysis demo and homepage footer, `#242424` for subtle control surfaces, and `#FFFFFF` for primary text.
+- Use Pale Lilac (`#D9C9E6`) as the Machintu accent for emphasis and small status indicators. Keep body text neutral and check contrast for each use.
+- Use a restrained Pale Lilac highlight for illustrative passages in the Linse demo; captured words move from the text into the analysis list, with a static reduced-motion alternative.
 - Use the native system sans-serif stack (`-apple-system`, `BlinkMacSystemFont`, `"SF Pro Display"`, `"SF Pro Text"`, `"Segoe UI"`, sans-serif) so Apple platforms use their system type without requiring a separately licensed font.
 - Keep the header and footer within the 1120px content width. Use a compact desktop Linse navigation and an accessible menu button on small screens.
 
 ### Machintu usage
 
 - Start with black/white and neutral surfaces above. Keep colour roles consistent.
-- Reserve cyan/teal for a key phrase, interactive demonstration, or primary accent, not every heading and button.
+- Reserve Pale Lilac for a key phrase, interactive demonstration, or primary accent, not every heading and button.
 - Treat project-specific colours as local themes, not additional global brand colours.
 - Pair light themed surfaces with dark themed ink; verify contrast before adoption.
 - Communicate success, warning, and error through text or icons as well as colour.
@@ -137,6 +151,8 @@ The reference’s content and section structure emphasise animation, interactivi
 - Prefer transforms and opacity over repeatedly animating layout properties.
 - Pause offscreen rendering. Introduce canvas or WebGL only when it materially improves the story.
 - Recommended micro-interaction duration: 150–250ms. Recommended entrance transitions: 300–600ms. These are project defaults, not measured reference timings.
+- In the Linse demo, transfer highlighted words into the results list with a 480ms transform/opacity motion and 80ms sibling stagger; time the illustrative score count-up to the full batch. Reduced motion skips spatial movement and shows the same readable result.
+- Reveal the three educational selling points after the title/subtitle entrance, one at a time with a two-second gap; reduced motion shows all three immediately.
 - Respect `prefers-reduced-motion`: remove parallax, long pinned sequences, and nonessential movement; show the final readable state directly.
 - Ensure a static or failed-animation state still communicates the full message.
 
