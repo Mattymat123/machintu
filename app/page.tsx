@@ -16,6 +16,9 @@ export default function Page() {
             <h1 id="hero-title">
               AI i elevopgaver<span className="accent">.</span>
             </h1>
+          </div>
+          <AnalysisDemo />
+          <div className="hero-context">
             <p className="hero-copy">
               Linse undersøger, hvor AI kan bidrage til analyse af elevers
               opgaver, og hvor teknologien kan tage fejl. Målet er at belyse
@@ -25,7 +28,6 @@ export default function Page() {
               Læs om Linse <span aria-hidden="true">↘</span>
             </a>
           </div>
-          <AnalysisDemo />
         </section>
 
         <section className="intro-section section-wrap" id="linse" tabIndex={-1} aria-labelledby="linse-title">
@@ -83,7 +85,6 @@ export default function Page() {
       <footer className="site-footer">
         <div className="footer-inner">
           <a className="footer-wordmark" href="#home">Machintu</a>
-          <p>Virksomheden bag Linse.</p>
           <span>© {new Date().getFullYear()} Machintu</span>
         </div>
       </footer>
