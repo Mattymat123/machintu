@@ -32,7 +32,7 @@ export const translations = {
           description: "Giv elever plads til at fortælle, hvordan deres idéer og tekst blev til.",
         },
         {
-          title: "Start en samtale, ikke en dom",
+          title: "Start en samtale om AI i undervisningen",
           description: "Brug tegn på AI som afsæt for en faglig samtale om opgaven.",
         },
         {
