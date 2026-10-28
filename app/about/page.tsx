@@ -1,51 +1,42 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
+import { getLocale } from "@/lib/locale"
+import { getTranslations } from "@/lib/translations"
 
-export const metadata: Metadata = {
-  title: "Om mig | Carl Floris Halberg",
-  description:
-    "Carl Floris Halberg arbejder for at gøre AI forståelig og tilgængelig for læreres faglige vurdering.",
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  const copy = getTranslations(locale).about
+
+  return { title: copy.metadataTitle, description: copy.metadataDescription }
 }
 
-const competencies = [
-  ["AI-arkitektur", "Integrationer, brugerstyring, adgang og skalering."],
-  [
-    "Generativ og agentisk AI",
-    "RAG, MCP, promptudvikling, evaluering og værktøjskald.",
-  ],
-  ["Cloud og drift", "Azure, Kubernetes, Bicep og CI/CD; regeloverholdelse og omkostninger."],
-  ["Udvikling", "C#/.NET, Python, API’er og SQL."],
-  ["Formidling", "Præsenterer AI-løsninger for brugere og udviklere. Oplæg ved EUPAN."],
-]
+export default async function AboutPage() {
+  const locale = await getLocale()
+  const copy = getTranslations(locale)
+  const about = copy.about
 
-export default function AboutPage() {
   return (
-    <div className="site-shell about-page" lang="da">
+    <div className="site-shell about-page">
       <a className="skip-link" href="#main">
-        Gå til indhold
+        {copy.skipToContent}
       </a>
 
-      <SiteHeader />
+      <SiteHeader locale={locale} />
 
       <main id="main">
         <section className="about-hero section-wrap" aria-labelledby="about-title">
           <div className="about-hero-copy">
             <h1 id="about-title">
-              AI skal være til at forstå <span className="accent">– og vurdere.</span>
+              {about.titleLead} <span className="accent">{about.titleAccent}</span>
             </h1>
             <p className="about-tagline">
-              Carl Floris Halberg <span aria-hidden="true">·</span> AI og
-              softwareudvikling
+              Carl Floris Halberg <span aria-hidden="true">·</span> {about.tagline}
             </p>
             <p className="about-intro">
-              Jeg arbejder for at gøre AI tilgængelig for lærere som et værktøj,
-              de kan forstå, efterprøve og vurdere. AI kan pege på mønstre; det
-              er læreren, der kender undervisningen og træffer den faglige
-              vurdering. Min rolle er at bygge bro fra det behov til arkitektur,
-              kode og løsninger, der fungerer i praksis.
+              {about.intro}
             </p>
-            <div className="about-contact-links" aria-label="Kontaktoplysninger">
+            <div className="about-contact-links" id="contact" aria-label={about.contact}>
               <a href="mailto:cfhalberg@gmail.com">cfhalberg@gmail.com</a>
               <a href="tel:+4528147015">+45 28 14 70 15</a>
               <a
@@ -57,144 +48,88 @@ export default function AboutPage() {
               </a>
             </div>
           </div>
-          <div className="about-facts" aria-label="Udvalgte erfaringer">
-            <p>
-              <strong>60.000</strong>
-              <span>statsligt ansatte i målgruppen for AI-programmet</span>
-            </p>
-            <p>
-              <strong>400</strong>
-              <span>medarbejdere brugte AI-assistenten, der gik forud</span>
-            </p>
-          </div>
+
         </section>
 
         <div className="about-content section-wrap">
           <div className="about-main-column">
             <section className="about-block" aria-labelledby="experience-title">
-              <h2 id="experience-title">Erfaring</h2>
+              <h2 id="experience-title">{about.experience}</h2>
               <article className="resume-entry">
                 <div className="resume-entry-heading">
-                  <h3>Dataspecialist</h3>
-                  <p>Feb. 2025 – nu</p>
+                  <h3>{about.dataSpecialist}</h3>
+                  <p>{about.now}</p>
                 </div>
-                <p className="resume-org">Økonomistyrelsen</p>
+                <p className="resume-org">{about.agency}</p>
                 <ul>
                   <li>
-                    <strong>Teknisk ledelse:</strong> Arkitektur og teknologivalg
-                    for et .NET-baseret AI-program under udrulning til en
-                    målgruppe på 60.000 statslige ansatte.
+                    <strong>{about.technicalLeadership}:</strong> {about.technicalLeadershipText}
                   </li>
                   <li>
-                    <strong>Forretningsdialog:</strong> Afdækker behov og
-                    kvalificerer tekniske valg med brugere og udviklere.
+                    <strong>{about.businessDialogue}:</strong> {about.businessDialogueText}
                   </li>
                   <li>
-                    <strong>Udvikling og drift:</strong> AI-assistent for 400
-                    medarbejdere. Succesen gav mandat til det nuværende
-                    AI-program.
+                    <strong>{about.developmentAndOperations}:</strong> {about.developmentAndOperationsText}
                   </li>
                 </ul>
               </article>
 
               <article className="resume-entry">
                 <div className="resume-entry-heading">
-                  <h3>AI-specialist</h3>
-                  <p>Nov. 2024 – apr. 2025</p>
+                  <h3>{about.aiSpecialist}</h3>
+                  <p>{about.recallerDates}</p>
                 </div>
-                <p className="resume-org">Machintu · Deltid</p>
+                <p className="resume-org">{about.machintuPartTime}</p>
                 <ul>
                   <li>
-                    Udvikling og brugertest af Recaller, en AI-løsning for
-                    personer med demens.
+                    {about.recaller}
                   </li>
                 </ul>
               </article>
 
               <article className="resume-entry">
                 <div className="resume-entry-heading">
-                  <h3>Studentermedhjælper</h3>
-                  <p>Okt. 2023 – jan. 2025</p>
+                  <h3>{about.studentAssistant}</h3>
+                  <p>{about.studentAssistantDates}</p>
                 </div>
                 <p className="resume-org">
-                  Finansministeriet – Økonomistyrelsen · Deltid
+                  {about.financePartTime}
                 </p>
                 <ul>
-                  <li>IT-udvikling, procesautomatisering og maskinlæring.</li>
+                  <li>{about.itDevelopment}</li>
                 </ul>
               </article>
             </section>
 
             <section className="about-block" aria-labelledby="education-title">
-              <h2 id="education-title">Uddannelse</h2>
+              <h2 id="education-title">{about.education}</h2>
               <article className="resume-entry">
                 <div className="resume-entry-heading">
-                  <h3>Kandidat i statskundskab</h3>
-                  <p>Januar 2025</p>
+                  <h3>{about.masters}</h3>
+                  <p>{about.january2025}</p>
                 </div>
-                <p className="resume-org">Aarhus Universitet</p>
+                <p className="resume-org">{about.university}</p>
                 <ul>
                   <li>
-                    Speciale: <em>“Kan robotter tweete?”</em> – generativ AI og
-                    misinformation.
+                    {about.thesis}: <em>“{about.thesisTitle}”</em> – {about.thesisText}
                   </li>
                 </ul>
               </article>
               <article className="resume-entry">
                 <div className="resume-entry-heading">
-                  <h3>Bachelor i statskundskab</h3>
-                  <p>Januar 2021</p>
+                  <h3>{about.bachelors}</h3>
+                  <p>{about.january2021}</p>
                 </div>
-                <p className="resume-org">Aarhus Universitet</p>
+                <p className="resume-org">{about.university}</p>
               </article>
             </section>
           </div>
 
-          <aside className="about-side-column" aria-label="Kompetencer og øvrigt">
-            <section className="about-block" aria-labelledby="competencies-title">
-              <h2 id="competencies-title">Kernekompetencer</h2>
-              <ul className="competency-list">
-                {competencies.map(([title, description]) => (
-                  <li key={title}>
-                    <strong>{title}:</strong> {description}
-                  </li>
-                ))}
-              </ul>
-            </section>
+          <aside className="about-side-column" aria-label={about.skillsAndMore}>
+          
 
-            <section className="about-block" aria-labelledby="hackathons-title">
-              <h2 id="hackathons-title">Hackathons</h2>
-              <article className="resume-entry compact-entry">
-                <div className="resume-entry-heading">
-                  <h3>Vinder, Microsoft AI</h3>
-                  <p>Nov. 2024</p>
-                </div>
-                <p className="resume-org">Økonomistyrelsen</p>
-                <p>Generativ AI og virksomhedsarkitektur.</p>
-              </article>
-              <article className="resume-entry compact-entry">
-                <div className="resume-entry-heading">
-                  <h3>Deltager, Google</h3>
-                  <p>2025</p>
-                </div>
-                <p className="resume-org">Økonomistyrelsen</p>
-                <p>Agentiske AI-prototyper og datastrømme.</p>
-              </article>
-            </section>
 
-            <section className="about-block" aria-labelledby="languages-title">
-              <h2 id="languages-title">Sprog</h2>
-              <ul className="plain-list">
-                <li><strong>Dansk:</strong> Modersmål</li>
-                <li><strong>Engelsk:</strong> Flydende</li>
-                <li><strong>Fransk, spansk og italiensk:</strong> Samtaleniveau</li>
-              </ul>
-            </section>
 
-            <section className="about-block" aria-labelledby="interests-title">
-              <h2 id="interests-title">Fritidsinteresser</h2>
-              <p>Skak og boksning</p>
-            </section>
           </aside>
         </div>
       </main>
@@ -202,7 +137,7 @@ export default function AboutPage() {
       <footer className="site-footer">
         <div className="footer-inner">
           <Link className="footer-wordmark" href="/">Machintu</Link>
-          <p>Ansvarlig AI til undervisning.</p>
+          <p>{about.footer}</p>
           <span>© {new Date().getFullYear()} Machintu</span>
         </div>
       </footer>
