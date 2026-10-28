@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "apple-design": {
+      "source": "emilkowalski/skills",
+      "sourceType": "github",
+      "skillPath": "skills/apple-design/SKILL.md",
+      "computedHash": "0190417d092a0df447b000154e39733ea6d97efad6d3bec8a6ce3845aeb88914"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "git-pushing": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "skillPath": "cli-tool/components/skills/development/git-pushing/SKILL.md",
+      "computedHash": "faeb4ef2e69ef945940215b5dfe73b91ba4fc7d12bdc712efb69f1d9b5739fd6"
+    },
+    "living-docs-governance": {
+      "source": "affaan-m/ECC",
+      "sourceType": "github",
+      "skillPath": "skills/living-docs-governance/SKILL.md",
+      "computedHash": "50889830c691343bec3f5dce22ffe9d042fdf387291a27a3b89f02c7e8a5f5a2"
+    },
+    "webapp-testing": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/webapp-testing/SKILL.md",
+      "computedHash": "ad5b1fc52807e9afa4635e59218a026b164dc58b6c3f41b0f7c644dcd6ccf572"
+    }
+  }
+}

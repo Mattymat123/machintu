@@ -1,0 +1,23 @@
+{
+  "explorer.excludeGitIgnore": true,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/*.tsbuildinfo": true,
+    ".omo": true,
+    ".impeccable": true,
+    ".playwright-mcp": true
+  },
+  "search.useIgnoreFiles": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/.cache/**": true,
+    "**/.turbo/**": true,
+    "**/coverage/**": true,
+    "**/playwright-report/**": true,
+    "**/test-results/**": true
+  }
+}
